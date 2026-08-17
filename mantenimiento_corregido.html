@@ -1,0 +1,259 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0f172a"><title>Mantenimiento</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f1f5f9;color:#0f172a;font-family:system-ui,-apple-system,Segoe UI,sans-serif}header{background:#0f172a;color:#fff;padding:18px 16px 20px;border-radius:0 0 24px 24px}.bar{display:flex;justify-content:space-between;align-items:center}.logo{font-size:20px;font-weight:900}.hello{margin-top:18px;font-size:26px;font-weight:900}.sub{opacity:.7;font-size:13px}.wrap{padding:16px 14px 95px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:-8px}.stat{background:#fff;border-radius:18px;padding:15px;box-shadow:0 4px 15px #0000000b}.stat b{font-size:28px;display:block}.stat span{font-size:12px;color:#64748b}.section{display:flex;justify-content:space-between;align-items:center;margin:20px 2px 10px}.section h2{font-size:18px;margin:0}.add{border:0;border-radius:14px;background:#0f172a;color:white;padding:12px 15px;font-weight:800}.job{background:#fff;border-radius:18px;padding:15px;margin:10px 0;box-shadow:0 4px 15px #0000000b}.jt{font-size:16px;font-weight:850}.meta{font-size:12px;color:#64748b;margin-top:5px}.badges{display:flex;gap:6px;flex-wrap:wrap;margin:11px 0}.badge{padding:6px 9px;border-radius:999px;font-size:11px;font-weight:850}.red{background:#fee2e2;color:#991b1b}.yellow{background:#fef3c7;color:#92400e}.green{background:#dcfce7;color:#166534}.blue{background:#dbeafe;color:#1d4ed8}.orange{background:#ffedd5;color:#9a3412}.actions{display:flex;gap:7px;margin-top:12px}.small{border:0;border-radius:11px;padding:9px 11px;font-weight:750;background:#e2e8f0}.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e2e8f0;display:flex;justify-content:space-around;padding:9px 5px calc(9px + env(safe-area-inset-bottom));z-index:4}.nav{border:0;background:none;color:#64748b;font-size:11px;font-weight:750}.nav.active{color:#0f172a}.nav div{font-size:21px}.modal{position:fixed;inset:0;background:#0009;display:none;align-items:flex-end;z-index:10}.modal.on{display:flex}.sheet{background:#fff;border-radius:24px 24px 0 0;width:100%;padding:20px;max-height:90vh;overflow:auto}.sheet h2{margin-top:0}.form{display:grid;gap:10px}.form input,.form textarea,.form select{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:12px;font:inherit}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.save{background:#0f172a;color:#fff;border:0;border-radius:13px;padding:14px;font-weight:850}.cancel{background:#e2e8f0;border:0;border-radius:13px;padding:14px;font-weight:800}.material{display:flex;gap:6px;margin:7px 0}.material input{flex:1}.login{min-height:100vh;background:#0f172a;display:flex;align-items:center;padding:20px}.loginbox{background:#fff;border-radius:24px;padding:25px;width:100%}.loginbox h1{font-size:26px}.loginbox button{width:100%;margin-top:8px}.hint{font-size:11px;color:#64748b;margin-top:12px}
+</style></head><body>
+<div id="login" class="login">
+  <div class="loginbox">
+    <h1>🛠️ Mantenimiento</h1>
+    <p>Entrá para ver los trabajos.</p>
+    <div class="form">
+      <input id="user" type="email" placeholder="📧 Email">
+      <input id="pass" type="password" placeholder="🔒 Contraseña">
+      <button class="save" onclick="entrar()">🔐 Ingresar</button>
+      <button class="cancel" onclick="registrar()">👤 Crear usuario</button>
+    </div>
+    <div id="loginMsg" class="hint">Los usuarios quedan guardados online en Supabase.</div><button class="cancel" type="button" onclick="probarConexion()">🌐 Probar conexión con Supabase</button>
+  </div>
+</div>
+<div id="app" style="display:none"><header><div class="bar"><div class="logo">🛠️ Mantenimiento</div><button onclick="salir()" style="border:0;background:#fff2;color:white;border-radius:10px;padding:8px">Salir</button></div><div class="hello">Hola 👋</div><div class="sub">Panel de mantenimiento</div></header>
+<div class="wrap"><div class="stats"><div class="stat"><b id="s1">0</b><span>🔴 Urgentes</span></div><div class="stat"><b id="s2">0</b><span>🟡 Pendientes</span></div><div class="stat"><b id="s3">0</b><span>⚠️ Faltan materiales</span></div><div class="stat"><b id="s4">0</b><span>✅ Terminados</span></div></div>
+<div class="section"><h2>📋 Próximos trabajos</h2><button class="add" onclick="nuevo()">＋ Nuevo</button></div><input id="buscar" oninput="dibujar()" placeholder="🔎 Buscar..." style="width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:13px">
+<div id="lista"></div></div>
+<nav class="bottom"><button class="nav active"><div>🏠</div>Inicio</button><button class="nav" onclick="filtro('pend')"><div>🔧</div>Trabajos</button><button class="nav" onclick="filtro('falt')"><div>📦</div>Materiales</button><button class="nav"><div>👥</div>Equipo</button></nav></div>
+<div id="modal" class="modal"><div class="sheet"><h2 id="titulo">➕ Nuevo trabajo</h2><div class="form"><input id="t" placeholder="🔧 Trabajo a realizar"><textarea id="d" rows="3" placeholder="📝 Descripción"></textarea><input id="e" placeholder="🏭 Equipo / sector"><div class="row"><input id="f" type="date"><select id="u"><option>Alta</option><option selected>Media</option><option>Baja</option></select></div><select id="st"><option>Pendiente</option><option>En proceso</option><option>Terminado</option></select><h3>📦 Materiales</h3><div id="ms"></div><button class="cancel" onclick="material()">＋ Agregar material</button><button class="save" onclick="guardar()">💾 Guardar trabajo</button><button class="cancel" onclick="cerrar()">Cancelar</button></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL = "https://ujyrggzrcnbddkbvzvjv.supabase.co";
+const SUPABASE_KEY = "sb_publishable_oerDQnQCB89-BLPi7-VW2g_gs5TQmUW";
+const { createClient } = supabase;
+const db = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+let datos = [];
+let edit = null, modo = "todos", perfil = null;
+
+function msg(t){
+  const el=document.getElementById("loginMsg");
+  if(el) el.textContent=t;
+}
+
+async function entrar(){
+  const email=document.getElementById("user").value.trim();
+  const password=document.getElementById("pass").value;
+  if(!email || !password) return msg("Completá email y contraseña.");
+  msg("Ingresando...");
+  try{
+    const {error}=await db.auth.signInWithPassword({email,password});
+    if(error) return msg("No se pudo ingresar: "+error.message);
+    await cargarUsuario();
+  }catch(e){
+    console.error("LOGIN ERROR",e);
+    msg("Error de conexión. Si aparece 'Failed to fetch', probá el botón 🌐 de abajo.");
+  }
+}
+
+async function registrar(){
+  const email=document.getElementById("user").value.trim();
+  const password=document.getElementById("pass").value;
+  if(!email || !password) return msg("Para crear el usuario completá email y contraseña.");
+  if(password.length<6) return msg("La contraseña debe tener al menos 6 caracteres.");
+  msg("Creando usuario...");
+  try{
+    const {data,error}=await db.auth.signUp({
+      email,
+      password,
+      options:{emailRedirectTo:window.location.href}
+    });
+    if(error) return msg("No se pudo crear: "+error.message);
+    if(!data.session){
+      msg("Usuario creado. Revisá tu email si Supabase pide confirmación y después ingresá.");
+      return;
+    }
+    await cargarUsuario();
+  }catch(e){
+    console.error("SIGNUP ERROR",e);
+    msg("❌ Failed to fetch: el navegador no está pudiendo comunicarse con Supabase. Probá 🌐 Probar conexión.");
+  }
+}
+
+async function probarConexion(){
+  msg("Probando conexión...");
+  try{
+    const r=await fetch(SUPABASE_URL+"/auth/v1/settings",{
+      method:"GET",
+      headers:{apikey:SUPABASE_KEY}
+    });
+    const body=await r.text();
+    if(r.ok){
+      msg("✅ Conexión OK con Supabase. Ahora probá Crear usuario.");
+    }else{
+      msg("⚠️ Supabase respondió HTTP "+r.status+". Revisá la clave publishable y el proyecto.");
+      console.log("SUPABASE RESPONSE",r.status,body);
+    }
+  }catch(e){
+    console.error("SUPABASE CONNECTION ERROR",e);
+    msg("❌ No hay conexión con Supabase desde este navegador. Revisá internet, extensiones/bloqueadores y la URL del proyecto.");
+  }
+}
+
+async function cargarUsuario(){
+  const {data:{user:usr}}=await db.auth.getUser();
+  if(!usr){ mostrarLogin(); return; }
+
+  // Busca el perfil asociado al usuario autenticado.
+  const {data:p,error}=await db.from("perfiles").select("*").eq("id",usr.id).maybeSingle();
+  if(error){
+    console.error(error);
+    msg("Entraste, pero falta configurar el perfil en la base.");
+    return;
+  }
+  perfil=p || {id:usr.id,nombre:usr.email,rol:"tecnico"};
+  login.style.display="none"; app.style.display="block";
+  document.querySelector(".hello").textContent="Hola 👋 "+(perfil.nombre || usr.email.split("@")[0]);
+  await cargarTrabajos();
+}
+
+function mostrarLogin(){
+  login.style.display="flex"; app.style.display="none";
+}
+
+async function salir(){
+  await db.auth.signOut();
+  datos=[];
+  mostrarLogin();
+}
+
+async function cargarTrabajos(){
+  const {data,error}=await db.from("trabajos")
+    .select("*")
+    .order("fecha",{ascending:true});
+  if(error){
+    console.error(error);
+    alert("No pude leer los trabajos: "+error.message);
+    return;
+  }
+  datos=(data||[]).map(x=>({
+    id:x.id,t:x.titulo||"",d:x.descripcion||"",e:x.equipo_sector||"",
+    f:x.fecha||"",u:x.prioridad||"Media",st:x.estado||"Pendiente",
+    m:Array.isArray(x.materiales)?x.materiales:[]
+  }));
+  dibujar();
+}
+
+function filtro(x){modo=x;dibujar()}
+
+function dibujar(){
+  const q=(document.getElementById("buscar").value||"").toLowerCase();
+  s1.textContent=datos.filter(x=>x.u=="Alta"&&x.st!="Terminado").length;
+  s2.textContent=datos.filter(x=>x.st=="Pendiente").length;
+  s3.textContent=datos.filter(x=>x.m.some(m=>!m[1])&&x.st!="Terminado").length;
+  s4.textContent=datos.filter(x=>x.st=="Terminado").length;
+
+  let a=datos.filter(x=>{
+    let f=modo=="todos"||modo=="pend"&&x.st!="Terminado"||modo=="falt"&&x.m.some(m=>!m[1]);
+    return f&&(x.t+x.d+x.e).toLowerCase().includes(q)
+  });
+  lista.innerHTML=a.map(x=>`<div class="job">
+    <div class="jt">${esc(x.t)}</div>
+    <div class="meta">🏭 ${esc(x.e)} · 📅 ${x.f||"Sin fecha"}</div>
+    <div class="badges">
+      <span class="badge ${x.u=="Alta"?"red":x.u=="Media"?"yellow":"green"}">${x.u=="Alta"?"🔴":x.u=="Media"?"🟡":"🟢"} ${esc(x.u)}</span>
+      <span class="badge blue">🔧 ${esc(x.st)}</span>
+      ${x.m.some(m=>!m[1])?'<span class="badge orange">⚠️ Falta material</span>':'<span class="badge green">📦 Completo</span>'}
+    </div>
+    <div class="meta">${esc(x.d)}</div>
+    <div class="meta">${x.m.map(m=>(m[1]?"✅ ":"❌ ")+esc(m[0])).join(" · ")}</div>
+    <div class="actions">
+      <button class="small" onclick="editar('${x.id}')">✏️ Editar</button>
+      <button class="small" onclick="avanzar('${x.id}')">▶️ Estado</button>
+    </div>
+  </div>`).join("");
+}
+
+function nuevo(){editar(null)}
+
+function editar(id){
+  edit=id;
+  let x=id?datos.find(y=>String(y.id)==String(id)):
+    {t:"",d:"",e:"",f:new Date().toISOString().slice(0,10),u:"Media",st:"Pendiente",m:[]};
+  titulo.textContent=id?"✏️ Editar trabajo":"➕ Nuevo trabajo";
+  t.value=x.t; d.value=x.d; e.value=x.e; f.value=x.f; u.value=x.u; st.value=x.st;
+  ms.innerHTML=""; (x.m||[]).forEach(material);
+  modal.classList.add("on");
+}
+
+function material(v=["",0]){
+  let z=document.createElement("div"); z.className="material";
+  z.innerHTML=`<input value="${esc(v[0])}" placeholder="Material">
+  <label><input type="checkbox" ${v[1]?"checked":""}> ✅</label>`;
+  ms.appendChild(z);
+}
+
+async function guardar(){
+  if(!perfil) return alert("No hay usuario autenticado.");
+  let m=[...ms.children].map(x=>[
+    x.querySelector("input").value,
+    x.querySelector("input[type=checkbox]").checked?1:0
+  ]).filter(x=>x[0]);
+
+  if(!t.value.trim()) return alert("Escribí el trabajo.");
+
+  const payload={
+    titulo:t.value.trim(),
+    descripcion:d.value,
+    equipo_sector:e.value,
+    fecha:f.value||null,
+    prioridad:u.value,
+    estado:st.value,
+    materiales:m
+  };
+
+  let error;
+  if(edit){
+    ({error}=await db.from("trabajos").update(payload).eq("id",edit));
+  }else{
+    payload.creado_por=perfil.id;
+    ({error}=await db.from("trabajos").insert(payload));
+  }
+
+  if(error){
+    console.error(error);
+    return alert("No se pudo guardar: "+error.message);
+  }
+  cerrar();
+  await cargarTrabajos();
+}
+
+async function avanzar(id){
+  let x=datos.find(y=>String(y.id)==String(id));
+  if(!x)return;
+  x.st=x.st=="Pendiente"?"En proceso":x.st=="En proceso"?"Terminado":"Pendiente";
+  const {error}=await db.from("trabajos").update({estado:x.st}).eq("id",id);
+  if(error) return alert("No se pudo cambiar el estado: "+error.message);
+  dibujar();
+}
+
+function cerrar(){modal.classList.remove("on")}
+
+function esc(s){
+  return String(s??"").replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
+}
+
+db.auth.onAuthStateChange((event, session)=>{
+  if(event==="SIGNED_OUT") mostrarLogin();
+});
+
+(async function iniciar(){
+  try{
+    const {data:{session}}=await db.auth.getSession();
+    if(session) await cargarUsuario();
+    else mostrarLogin();
+  }catch(e){
+    console.error("INIT ERROR",e);
+    mostrarLogin();
+    msg("No se pudo conectar con Supabase. Usá 🌐 Probar conexión.");
+  }
+})();
+</script>
+</body></html>

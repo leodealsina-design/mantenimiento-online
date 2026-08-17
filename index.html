@@ -1,234 +1,282 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
-
-<meta charset="utf-8">
-
-<meta name="viewport"
-content="width=device-width,initial-scale=1,viewport-fit=cover">
-
-<meta name="theme-color" content="#0f172a">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <title>🛠️ Mantenimiento</title>
 
 <style>
-
 *{
   box-sizing:border-box;
 }
 
 body{
   margin:0;
-  background:#f1f5f9;
-  color:#0f172a;
-  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+  background:#f4f7fb;
+  color:#172033;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
-/* =========================
-   LOGIN
-========================= */
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* LOGIN */
 
 .login{
   min-height:100vh;
-  background:#0f172a;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:20px;
+  background:linear-gradient(135deg,#0f172a,#1e3a8a);
 }
 
 .loginbox{
+  width:100%;
+  max-width:430px;
   background:white;
   border-radius:24px;
-  padding:28px;
-  width:100%;
-  max-width:420px;
-  box-shadow:0 20px 50px #0005;
+  padding:30px;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 
 .loginbox h1{
-  font-size:28px;
-  margin-top:0;
+  margin:0 0 8px;
+  font-size:30px;
+}
+
+.loginbox p{
+  color:#64748b;
+  margin:0 0 24px;
 }
 
 .form{
-  display:grid;
-  gap:10px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
 }
 
-.form input,
-.form textarea,
-.form select{
+.form input{
   width:100%;
-  padding:13px;
-  border:1px solid #cbd5e1;
+  padding:15px;
+  border:1px solid #d7deea;
   border-radius:12px;
-  font:inherit;
+  outline:none;
 }
 
-.save{
-  background:#0f172a;
+.form input:focus{
+  border-color:#2563eb;
+}
+
+.btn{
+  border:0;
+  border-radius:12px;
+  padding:14px 18px;
+  font-weight:bold;
   color:white;
-  border:0;
-  border-radius:13px;
-  padding:14px;
-  font-weight:850;
-  cursor:pointer;
+  background:#2563eb;
 }
 
-.cancel{
-  background:#e2e8f0;
-  border:0;
-  border-radius:13px;
-  padding:14px;
-  font-weight:800;
-  cursor:pointer;
+.btn:hover{
+  opacity:.9;
 }
 
-.hint{
-  font-size:12px;
-  color:#64748b;
-  margin-top:12px;
-  line-height:1.5;
+.btn.secondary{
+  background:#e8eef8;
+  color:#1e3a8a;
 }
 
-/* =========================
-   APP
-========================= */
+.mensaje{
+  margin-top:15px;
+  padding:12px;
+  border-radius:10px;
+  background:#f1f5f9;
+  color:#475569;
+  font-size:14px;
+}
+
+/* APP */
+
+#app{
+  min-height:100vh;
+}
 
 header{
   background:#0f172a;
   color:white;
-  padding:18px 16px 20px;
-  border-radius:0 0 24px 24px;
+  padding:15px 20px;
+  position:sticky;
+  top:0;
+  z-index:10;
 }
 
 .bar{
+  max-width:1200px;
+  margin:auto;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  gap:15px;
 }
 
 .logo{
-  font-size:20px;
-  font-weight:900;
+  font-size:21px;
+  font-weight:bold;
 }
 
-.hello{
-  margin-top:18px;
-  font-size:26px;
-  font-weight:900;
-}
-
-.sub{
-  opacity:.7;
+.usuario{
   font-size:13px;
+  color:#cbd5e1;
 }
 
 .wrap{
-  padding:16px 14px 95px;
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
 }
 
-/* =========================
-   ESTADISTICAS
-========================= */
+/* ESTADISTICAS */
 
 .stats{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:-8px;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-bottom:20px;
 }
 
 .stat{
-  background:#fff;
-  border-radius:18px;
-  padding:15px;
-  box-shadow:0 4px 15px #0000000b;
+  background:white;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 4px 15px rgba(15,23,42,.06);
 }
 
 .stat b{
-  font-size:28px;
   display:block;
+  font-size:28px;
+  margin-bottom:5px;
 }
 
 .stat span{
-  font-size:12px;
   color:#64748b;
+  font-size:14px;
 }
 
-/* =========================
-   TRABAJOS
-========================= */
+/* SECCION */
 
 .section{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin:20px 2px 10px;
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 4px 15px rgba(15,23,42,.06);
 }
 
-.section h2{
-  font-size:18px;
+.sectionhead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:15px;
+}
+
+.sectionhead h2{
   margin:0;
+  font-size:21px;
 }
 
 .add{
   border:0;
-  border-radius:14px;
-  background:#0f172a;
+  background:#2563eb;
   color:white;
-  padding:12px 15px;
-  font-weight:800;
-  cursor:pointer;
+  padding:11px 15px;
+  border-radius:10px;
+  font-weight:bold;
 }
 
-.search{
-  width:100%;
-  padding:13px;
-  border:1px solid #cbd5e1;
-  border-radius:13px;
-  font:inherit;
-  margin-bottom:10px;
+.tools{
+  display:flex;
+  gap:10px;
+  margin-bottom:15px;
 }
+
+.tools input{
+  flex:1;
+  padding:12px;
+  border:1px solid #d7deea;
+  border-radius:10px;
+}
+
+.filters{
+  display:flex;
+  gap:8px;
+  margin-bottom:15px;
+  flex-wrap:wrap;
+}
+
+.filter{
+  border:0;
+  background:#e9eef6;
+  color:#334155;
+  padding:9px 13px;
+  border-radius:20px;
+}
+
+.filter.active{
+  background:#2563eb;
+  color:white;
+}
+
+/* TRABAJOS */
 
 .job{
+  border:1px solid #e2e8f0;
+  border-radius:15px;
+  padding:16px;
+  margin-bottom:12px;
   background:#fff;
-  border-radius:18px;
-  padding:15px;
-  margin:10px 0;
-  box-shadow:0 4px 15px #0000000b;
 }
 
 .jt{
-  font-size:16px;
-  font-weight:850;
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:7px;
 }
 
 .meta{
-  font-size:12px;
   color:#64748b;
-  margin-top:5px;
+  font-size:14px;
+  margin-top:7px;
+  line-height:1.45;
 }
 
 .badges{
   display:flex;
-  gap:6px;
+  gap:7px;
   flex-wrap:wrap;
-  margin:11px 0;
+  margin-top:10px;
 }
 
 .badge{
   padding:6px 9px;
-  border-radius:999px;
-  font-size:11px;
-  font-weight:850;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
 }
 
 .red{
   background:#fee2e2;
-  color:#991b1b;
+  color:#b91c1c;
 }
 
 .yellow{
@@ -248,99 +296,86 @@ header{
 
 .orange{
   background:#ffedd5;
-  color:#9a3412;
+  color:#c2410c;
 }
 
 .actions{
   display:flex;
-  gap:7px;
-  margin-top:12px;
+  gap:8px;
+  margin-top:13px;
 }
 
 .small{
   border:0;
-  border-radius:11px;
-  padding:9px 11px;
-  font-weight:750;
-  background:#e2e8f0;
-  cursor:pointer;
+  padding:9px 12px;
+  border-radius:9px;
+  background:#e8eef8;
+  color:#1e3a8a;
+  font-weight:bold;
 }
 
-/* =========================
-   MENU INFERIOR
-========================= */
-
-.bottom{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:#fff;
-  border-top:1px solid #e2e8f0;
-  display:flex;
-  justify-content:space-around;
-  padding:9px 5px calc(9px + env(safe-area-inset-bottom));
-  z-index:4;
-}
-
-.nav{
-  border:0;
-  background:none;
-  color:#64748b;
-  font-size:11px;
-  font-weight:750;
-  cursor:pointer;
-}
-
-.nav.active{
-  color:#0f172a;
-}
-
-.nav div{
-  font-size:21px;
-}
-
-/* =========================
-   MODAL
-========================= */
+/* MODAL */
 
 .modal{
   position:fixed;
   inset:0;
-  background:#0009;
+  background:rgba(15,23,42,.6);
   display:none;
-  align-items:flex-end;
-  z-index:10;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+  z-index:50;
 }
 
 .modal.on{
   display:flex;
 }
 
-.sheet{
-  background:#fff;
-  border-radius:24px 24px 0 0;
+.modalbox{
   width:100%;
-  padding:20px;
-  max-height:90vh;
+  max-width:600px;
+  max-height:92vh;
   overflow:auto;
+  background:white;
+  border-radius:20px;
+  padding:22px;
 }
 
-.sheet h2{
+.modalbox h2{
   margin-top:0;
 }
 
-.row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
+.field{
+  margin-bottom:13px;
+}
+
+.field label{
+  display:block;
+  font-weight:bold;
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #d7deea;
+  border-radius:10px;
+  outline:none;
+}
+
+.field textarea{
+  min-height:90px;
+  resize:vertical;
 }
 
 .material{
   display:flex;
-  gap:6px;
-  margin:7px 0;
   align-items:center;
+  gap:10px;
+  margin-bottom:8px;
 }
 
 .material input[type="text"]{
@@ -349,38 +384,67 @@ header{
 
 .material label{
   white-space:nowrap;
+  font-size:13px;
 }
 
-/* =========================
-   PC
-========================= */
+.modalactions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:18px;
+}
 
-@media(min-width:700px){
+/* RESPONSIVE */
 
-  .loginbox{
-    max-width:450px;
+@media(max-width:800px){
+  .stats{
+    grid-template-columns:repeat(2,1fr);
   }
 
+  .bar{
+    align-items:flex-start;
+  }
+
+  .usuario{
+    display:none;
+  }
+}
+
+@media(max-width:550px){
   .wrap{
-    max-width:1100px;
-    margin:auto;
+    padding:12px;
   }
 
   .stats{
-    grid-template-columns:repeat(4,1fr);
+    gap:8px;
   }
 
+  .stat{
+    padding:13px;
+  }
+
+  .stat b{
+    font-size:23px;
+  }
+
+  .section{
+    padding:13px;
+  }
+
+  .sectionhead{
+    align-items:flex-start;
+  }
+
+  .tools{
+    flex-direction:column;
+  }
 }
-
 </style>
-
 </head>
 
 <body>
 
-<!-- ==========================================
-     LOGIN
-========================================== -->
+<!-- LOGIN -->
 
 <div id="login" class="login">
 
@@ -388,7 +452,7 @@ header{
 
     <h1>🛠️ Mantenimiento</h1>
 
-    <p>Entrá para ver los trabajos.</p>
+    <p>Ingresá para ver y administrar los trabajos.</p>
 
     <div class="form">
 
@@ -402,48 +466,32 @@ header{
       <input
         id="pass"
         type="password"
-        placeholder="🔒 Contraseña"
+        placeholder="🔐 Contraseña"
         autocomplete="current-password"
       >
 
-      <button
-        class="save"
-        onclick="entrar()"
-      >
-        🔐 Ingresar
+      <button class="btn" onclick="entrar()">
+        🔑 Ingresar
       </button>
 
-      <button
-        class="cancel"
-        onclick="registrar()"
-      >
+      <button class="btn secondary" onclick="registrar()">
         👤 Crear usuario
       </button>
 
     </div>
 
-    <div id="loginMsg" class="hint">
+    <div id="loginmsg" class="mensaje">
       Los usuarios quedan guardados online en Supabase.
     </div>
-
-    <button
-      class="cancel"
-      style="width:100%;margin-top:10px"
-      onclick="probarConexion()"
-    >
-      🌐 Probar conexión con Supabase
-    </button>
 
   </div>
 
 </div>
 
 
-<!-- ==========================================
-     APLICACION
-========================================== -->
+<!-- APP -->
 
-<div id="app" style="display:none">
+<div id="app" class="hidden">
 
 <header>
 
@@ -453,27 +501,17 @@ header{
       🛠️ Mantenimiento
     </div>
 
-    <button
-      onclick="salir()"
-      style="
-        border:0;
-        background:#ffffff22;
-        color:white;
-        border-radius:10px;
-        padding:8px 12px;
-      "
-    >
-      Salir
-    </button>
+    <div class="usuario">
+      <span id="usuarioNombre"></span>
+      ·
+      <button
+        onclick="salir()"
+        style="background:none;border:0;color:#93c5fd;font-weight:bold;"
+      >
+        Salir
+      </button>
+    </div>
 
-  </div>
-
-  <div class="hello">
-    Hola 👋
-  </div>
-
-  <div class="sub">
-    Panel de mantenimiento
   </div>
 
 </header>
@@ -492,7 +530,7 @@ header{
 
     <div class="stat">
       <b id="s2">0</b>
-      <span>🟡 Pendientes</span>
+      <span>⏳ Pendientes</span>
     </div>
 
     <div class="stat">
@@ -508,169 +546,173 @@ header{
   </div>
 
 
+  <!-- TRABAJOS -->
+
   <div class="section">
 
-    <h2>
-      📋 Próximos trabajos
-    </h2>
+    <div class="sectionhead">
 
-    <button
-      class="add"
-      onclick="nuevo()"
-    >
-      ＋ Nuevo
-    </button>
+      <h2>📋 Próximos trabajos</h2>
+
+      <button class="add" onclick="nuevo()">
+        ➕ Nuevo
+      </button>
+
+    </div>
+
+    <div class="tools">
+
+      <input
+        id="buscar"
+        placeholder="🔎 Buscar trabajo, descripción o ubicación..."
+        oninput="dibujar()"
+      >
+
+    </div>
+
+    <div class="filters">
+
+      <button
+        class="filter active"
+        id="fTodos"
+        onclick="filtrar('todos')"
+      >
+        Todos
+      </button>
+
+      <button
+        class="filter"
+        id="fPend"
+        onclick="filtrar('pend')"
+      >
+        ⏳ Pendientes
+      </button>
+
+      <button
+        class="filter"
+        id="fFalt"
+        onclick="filtrar('falt')"
+      >
+        ⚠️ Falta material
+      </button>
+
+    </div>
+
+    <div id="lista"></div>
 
   </div>
 
-
-  <input
-    id="buscar"
-    class="search"
-    oninput="dibujar()"
-    placeholder="🔎 Buscar trabajo, equipo o ubicación..."
-  >
-
-
-  <div id="lista"></div>
+</div>
 
 </div>
 
 
-<!-- MENU -->
-
-<nav class="bottom">
-
-  <button
-    class="nav active"
-    onclick="filtro('todos')"
-  >
-    <div>🏠</div>
-    Inicio
-  </button>
-
-  <button
-    class="nav"
-    onclick="filtro('pend')"
-  >
-    <div>🔧</div>
-    Trabajos
-  </button>
-
-  <button
-    class="nav"
-    onclick="filtro('falt')"
-  >
-    <div>📦</div>
-    Materiales
-  </button>
-
-</nav>
-
-</div>
-
-
-<!-- ==========================================
-     MODAL NUEVO / EDITAR
-========================================== -->
+<!-- MODAL -->
 
 <div id="modal" class="modal">
 
-  <div class="sheet">
+  <div class="modalbox">
 
     <h2 id="titulo">
       ➕ Nuevo trabajo
     </h2>
 
-    <div class="form">
-
+    <div class="field">
+      <label>Trabajo</label>
       <input
         id="t"
-        placeholder="🔧 Trabajo a realizar"
+        placeholder="Ej: Revisar aire acondicionado"
       >
+    </div>
 
+    <div class="field">
+      <label>Descripción</label>
       <textarea
         id="d"
-        rows="3"
-        placeholder="📝 Descripción"
+        placeholder="Descripción del trabajo..."
       ></textarea>
+    </div>
 
+    <div class="field">
+      <label>Ubicación / Equipo</label>
       <input
         id="e"
-        placeholder="🏭 Equipo / sector / ubicación"
+        placeholder="Ej: Sala Vegas - Aire 1"
       >
+    </div>
 
-      <div class="row">
+    <div class="field">
+      <label>Fecha programada</label>
+      <input id="f" type="date">
+    </div>
 
-        <input
-          id="f"
-          type="date"
-        >
+    <div class="field">
+      <label>Prioridad</label>
 
-        <select id="u">
-
-          <option value="Alta">
-            Alta
-          </option>
-
-          <option value="Media" selected>
-            Media
-          </option>
-
-          <option value="Baja">
-            Baja
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <select id="st">
-
-        <option value="Pendiente">
-          Pendiente
-        </option>
-
-        <option value="En proceso">
-          En proceso
-        </option>
-
-        <option value="Terminado">
-          Terminado
-        </option>
-
+      <select id="u">
+        <option value="Alta">🔴 Alta</option>
+        <option value="Media" selected>🟡 Media</option>
+        <option value="Baja">🟢 Baja</option>
       </select>
 
+    </div>
 
-      <h3>
-        📦 Materiales
-      </h3>
+    <div class="field">
+
+      <label>Estado</label>
+
+      <select id="st">
+        <option value="Pendiente">⏳ Pendiente</option>
+        <option value="En proceso">🔧 En proceso</option>
+        <option value="Terminado">✅ Terminado</option>
+      </select>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>📦 Materiales</label>
 
       <div id="ms"></div>
 
-
       <button
-        class="cancel"
+        type="button"
+        class="small"
         onclick="material()"
       >
-        ＋ Agregar material
+        ➕ Agregar material
       </button>
 
+    </div>
+
+
+    <div class="field">
+
+      <label>Observaciones</label>
+
+      <textarea
+        id="obs"
+        placeholder="Observaciones..."
+      ></textarea>
+
+    </div>
+
+
+    <div class="modalactions">
 
       <button
-        class="save"
-        onclick="guardar()"
-      >
-        💾 Guardar trabajo
-      </button>
-
-
-      <button
-        class="cancel"
+        class="small"
         onclick="cerrar()"
       >
         Cancelar
+      </button>
+
+      <button
+        class="add"
+        onclick="guardar()"
+      >
+        💾 Guardar
       </button>
 
     </div>
@@ -684,53 +726,50 @@ header{
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-
 <script>
 
-/* ==========================================
-   SUPABASE
-========================================== */
+/* =========================================================
+   CONEXION SUPABASE
+   ========================================================= */
 
 const SUPABASE_URL =
-  "https://ujyrgqzrcnbddkbvzvjv.supabase.co";
+  "https://ujyrggzrcnbddkbvzvjv.supabase.co";
 
 const SUPABASE_KEY =
   "sb_publishable_oerDQnQCB89-BLPi7-VW2g_gs5TQmUW";
 
-const db = window.supabase.createClient(
+const db = supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
 
 
-/* ==========================================
+/* =========================================================
    VARIABLES
-========================================== */
-
-let datos = [];
-
-let edit = null;
-
-let modo = "todos";
+   ========================================================= */
 
 let perfil = null;
+let datos = [];
+let edit = null;
+let modo = "todos";
 
 
-/* ==========================================
+/* =========================================================
    ELEMENTOS
-========================================== */
+   ========================================================= */
 
-const loginEl =
-  document.getElementById("login");
+const login = document.getElementById("login");
+const app = document.getElementById("app");
+const loginmsg = document.getElementById("loginmsg");
 
-const appEl =
-  document.getElementById("app");
-
-const loginMsg =
-  document.getElementById("loginMsg");
+const usuarioNombre =
+  document.getElementById("usuarioNombre");
 
 const lista =
   document.getElementById("lista");
+
+const buscar =
+  document.getElementById("buscar");
 
 const modal =
   document.getElementById("modal");
@@ -756,38 +795,92 @@ const u =
 const st =
   document.getElementById("st");
 
+const obs =
+  document.getElementById("obs");
+
 const ms =
   document.getElementById("ms");
 
-const s1 =
-  document.getElementById("s1");
 
-const s2 =
-  document.getElementById("s2");
-
-const s3 =
-  document.getElementById("s3");
-
-const s4 =
-  document.getElementById("s4");
-
-
-/* ==========================================
+/* =========================================================
    MENSAJE
-========================================== */
+   ========================================================= */
 
 function msg(text){
 
-  if(loginMsg){
-    loginMsg.textContent = text;
+  loginmsg.textContent = text;
+
+}
+
+
+/* =========================================================
+   ESCAPAR HTML
+   ========================================================= */
+
+function esc(s){
+
+  return String(s ?? "").replace(
+    /[&<>"']/g,
+    c => ({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#39;"
+    }[c])
+  );
+
+}
+
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
+async function entrar(){
+
+  const email =
+    document.getElementById("user").value.trim();
+
+  const password =
+    document.getElementById("pass").value;
+
+  if(!email || !password){
+
+    msg("Completá email y contraseña.");
+
+    return;
+  }
+
+  msg("🔄 Ingresando...");
+
+  const {data,error} =
+    await db.auth.signInWithPassword({
+      email,
+      password
+    });
+
+  if(error){
+
+    console.error(error);
+
+    msg("❌ "+error.message);
+
+    return;
+  }
+
+  if(data.session){
+
+    await cargarUsuario();
+
   }
 
 }
 
 
-/* ==========================================
-   REGISTRAR USUARIO
-========================================== */
+/* =========================================================
+   REGISTRAR
+   ========================================================= */
 
 async function registrar(){
 
@@ -799,67 +892,49 @@ async function registrar(){
 
   if(!email || !password){
 
-    msg(
-      "Completá email y contraseña."
-    );
+    msg("Escribí email y contraseña para crear el usuario.");
 
     return;
   }
 
   if(password.length < 6){
 
-    msg(
-      "La contraseña debe tener al menos 6 caracteres."
-    );
+    msg("La contraseña debe tener al menos 6 caracteres.");
 
     return;
   }
 
-  msg("👤 Creando usuario...");
+  msg("🔄 Creando usuario...");
 
-  try{
+  const {data,error} =
+    await db.auth.signUp({
+      email,
+      password
+    });
 
-    const {data,error} =
-      await db.auth.signUp({
-
-        email:email,
-
-        password:password
-
-      });
-
-
-    if(error){
-
-      console.error(error);
-
-      msg(
-        "❌ No se pudo crear: "
-        + error.message
-      );
-
-      return;
-    }
-
-
-    if(!data.session){
-
-      msg(
-        "✅ Usuario creado. Revisá tu email si Supabase pide confirmación. Después ingresá."
-      );
-
-      return;
-    }
-
-
-    await cargarUsuario();
-
-  }catch(error){
+  if(error){
 
     console.error(error);
 
+    msg("❌ "+error.message);
+
+    return;
+  }
+
+  /*
+   Si Supabase tiene confirmación de email activada,
+   puede que tengas que confirmar el correo antes
+   de poder entrar.
+  */
+
+  if(data.session){
+
+    await cargarUsuario();
+
+  }else{
+
     msg(
-      "❌ Error conectando con Supabase."
+      "✅ Usuario creado. Revisá tu email para confirmar la cuenta y después ingresá."
     );
 
   }
@@ -867,336 +942,290 @@ async function registrar(){
 }
 
 
-/* ==========================================
-   INGRESAR
-========================================== */
-
-async function entrar(){
-
-  const email =
-    document.getElementById("user").value.trim();
-
-  const password =
-    document.getElementById("pass").value;
-
-
-  if(!email || !password){
-
-    msg(
-      "Completá email y contraseña."
-    );
-
-    return;
-  }
-
-
-  msg("🔐 Ingresando...");
-
-
-  try{
-
-    const {error} =
-      await db.auth.signInWithPassword({
-
-        email:email,
-
-        password:password
-
-      });
-
-
-    if(error){
-
-      msg(
-        "❌ No se pudo ingresar: "
-        + error.message
-      );
-
-      return;
-    }
-
-
-    await cargarUsuario();
-
-
-  }catch(error){
-
-    console.error(error);
-
-    msg(
-      "❌ Error de conexión con Supabase."
-    );
-
-  }
-
-}
-
-
-/* ==========================================
+/* =========================================================
    CARGAR USUARIO
-========================================== */
+   ========================================================= */
 
 async function cargarUsuario(){
 
   const {
-    data:{user:usr}
+    data:{user},
+    error
   } = await db.auth.getUser();
 
-
-  if(!usr){
+  if(error || !user){
 
     mostrarLogin();
 
     return;
   }
 
+  /*
+   Buscamos el perfil.
+  */
 
-  /* BUSCAR PERFIL */
-
-  let {
-    data:p,
-    error
-  } =
+  let {data:pf,error:perror} =
     await db
       .from("perfiles")
       .select("*")
-      .eq("id",usr.id)
+      .eq("id",user.id)
       .maybeSingle();
 
+  if(perror){
 
-  /* CREAR PERFIL SI NO EXISTE */
+    console.error(perror);
 
-  if(!p){
+    /*
+     Aunque todavía no exista el perfil,
+     dejamos entrar a la aplicación.
+    */
 
-    const nuevoPerfil = {
-
-      id:usr.id,
-
-      nombre:
-        usr.email
-          ? usr.email.split("@")[0]
-          : "Usuario",
-
-      email:usr.email,
-
+    perfil = {
+      id:user.id,
+      nombre:user.email,
+      email:user.email,
       rol:"tecnico"
-
     };
 
+  }else if(!pf){
+
+    /*
+     Intentamos crear el perfil.
+     Si RLS no lo permite, igual seguimos.
+    */
+
+    const nuevoPerfil = {
+      id:user.id,
+      nombre:user.email.split("@")[0],
+      email:user.email,
+      rol:"tecnico"
+    };
 
     const resultado =
       await db
         .from("perfiles")
         .insert(nuevoPerfil)
         .select()
-        .single();
-
+        .maybeSingle();
 
     if(resultado.error){
 
-      console.error(
-        "ERROR PERFIL:",
+      console.warn(
+        "No se pudo crear perfil:",
         resultado.error
       );
 
+      perfil = nuevoPerfil;
+
     }else{
 
-      p = resultado.data;
+      perfil = resultado.data || nuevoPerfil;
 
     }
 
-  }
+  }else{
 
-
-  if(error && error.code !== "PGRST116"){
-
-    console.error(error);
+    perfil = pf;
 
   }
 
+  usuarioNombre.textContent =
+    perfil.nombre || perfil.email || user.email;
 
-  perfil =
-    p || {
-
-      id:usr.id,
-
-      nombre:
-        usr.email
-          ? usr.email.split("@")[0]
-          : "Usuario",
-
-      email:usr.email,
-
-      rol:"tecnico"
-
-    };
-
-
-  loginEl.style.display =
-    "none";
-
-  appEl.style.display =
-    "block";
-
-
-  document.querySelector(".hello")
-    .textContent =
-      "Hola 👋 "
-      + (
-        perfil.nombre
-        || usr.email.split("@")[0]
-      );
-
+  mostrarApp();
 
   await cargarTrabajos();
 
 }
 
 
-/* ==========================================
+/* =========================================================
+   MOSTRAR APP
+   ========================================================= */
+
+function mostrarApp(){
+
+  login.classList.add("hidden");
+  app.classList.remove("hidden");
+
+}
+
+
+/* =========================================================
+   MOSTRAR LOGIN
+   ========================================================= */
+
+function mostrarLogin(){
+
+  app.classList.add("hidden");
+  login.classList.remove("hidden");
+
+}
+
+
+/* =========================================================
+   SALIR
+   ========================================================= */
+
+async function salir(){
+
+  await db.auth.signOut();
+
+  perfil = null;
+  datos = [];
+
+  mostrarLogin();
+
+}
+
+
+/* =========================================================
    CARGAR TRABAJOS
-========================================== */
+   ========================================================= */
 
 async function cargarTrabajos(){
 
-  const {
-    data,
-    error
-  } =
+  lista.innerHTML =
+    "<p style='color:#64748b'>🔄 Cargando trabajos...</p>";
+
+  const {data,error} =
     await db
       .from("trabajos")
       .select("*")
-      .order(
-        "fecha_programada",
-        {ascending:true}
-      );
-
+      .order("fecha_programada",{ascending:true})
+      .order("created_at",{ascending:false});
 
   if(error){
 
     console.error(error);
 
-    alert(
-      "❌ No pude leer los trabajos:\n"
-      + error.message
-    );
+    lista.innerHTML =
+      `<p style="color:#b91c1c">
+        ❌ No se pudieron cargar los trabajos.<br>
+        ${esc(error.message)}
+      </p>`;
 
     return;
   }
 
+  datos = (data || []).map(x => ({
 
-  datos =
-    (data || []).map(x => ({
+    id:x.id,
 
-      id:x.id,
+    t:x.t || x.titulo || "",
 
-      t:x.titulo || "",
+    d:x.d || x.descripcion || "",
 
-      d:x.descripcion || "",
+    e:x.e || x.ubicacion || "",
 
-      e:x.ubicacion || "",
+    f:x.f || x.fecha_programada || "",
 
-      f:x.fecha_programada || "",
+    u:x.u || x.prioridad || "Media",
 
-      u:x.prioridad || "Media",
+    st:x.st || x.estado || "Pendiente",
 
-      st:x.estado || "Pendiente",
+    obs:x.obs || x.observaciones || "",
 
-      m:Array.isArray(x.materiales)
-        ? x.materiales
-        : []
+    m:Array.isArray(x.materiales)
+      ? x.materiales
+      : []
 
-    }));
-
+  }));
 
   dibujar();
 
 }
 
 
-/* ==========================================
+/* =========================================================
    DIBUJAR
-========================================== */
+   ========================================================= */
 
 function dibujar(){
 
   const q =
-    (
-      document.getElementById("buscar")
-        .value || ""
-    ).toLowerCase();
+    (buscar.value || "").toLowerCase();
 
-
-  s1.textContent =
+  document.getElementById("s1").textContent =
     datos.filter(
       x =>
-        x.u === "Alta"
-        && x.st !== "Terminado"
+        x.u === "Alta" &&
+        x.st !== "Terminado"
     ).length;
 
-
-  s2.textContent =
+  document.getElementById("s2").textContent =
     datos.filter(
       x =>
         x.st === "Pendiente"
     ).length;
 
-
-  s3.textContent =
+  document.getElementById("s3").textContent =
     datos.filter(
       x =>
-        x.m.some(m => !m[1])
-        && x.st !== "Terminado"
+        x.m.some(m => !m[1]) &&
+        x.st !== "Terminado"
     ).length;
 
-
-  s4.textContent =
+  document.getElementById("s4").textContent =
     datos.filter(
       x =>
         x.st === "Terminado"
     ).length;
 
 
-  const trabajos =
-    datos.filter(x => {
+  let a = datos.filter(x => {
 
-      let filtro = true;
+    let filtro =
+      modo === "todos" ||
 
+      (
+        modo === "pend" &&
+        x.st !== "Terminado"
+      ) ||
 
-      if(modo === "pend"){
+      (
+        modo === "falt" &&
+        x.m.some(m => !m[1])
+      );
 
-        filtro =
-          x.st !== "Terminado";
+    return filtro &&
+      (
+        x.t +
+        x.d +
+        x.e +
+        x.obs
+      )
+      .toLowerCase()
+      .includes(q);
 
-      }
-
-
-      if(modo === "falt"){
-
-        filtro =
-          x.m.some(m => !m[1]);
-
-      }
-
-
-      const texto =
-        (
-          x.t
-          + " "
-          + x.d
-          + " "
-          + x.e
-        ).toLowerCase();
+  });
 
 
-      return filtro
-        && texto.includes(q);
+  if(!a.length){
 
-    });
+    lista.innerHTML =
+      `<div style="
+        padding:30px;
+        text-align:center;
+        color:#64748b;
+      ">
+        📭 No hay trabajos para mostrar.
+      </div>`;
+
+    return;
+  }
 
 
-  lista.innerHTML =
-    trabajos.map(x => `
+  lista.innerHTML = a.map(x => {
+
+    const materiales =
+      x.m || [];
+
+    const faltan =
+      materiales.some(m => !m[1]);
+
+
+    return `
 
       <div class="job">
 
@@ -1207,9 +1236,8 @@ function dibujar(){
         <div class="meta">
           🏭 ${esc(x.e || "Sin ubicación")}
           ·
-          📅 ${x.f || "Sin fecha"}
+          📅 ${esc(x.f || "Sin fecha")}
         </div>
-
 
         <div class="badges">
 
@@ -1217,16 +1245,16 @@ function dibujar(){
             x.u === "Alta"
               ? "red"
               : x.u === "Media"
-              ? "yellow"
-              : "green"
+                ? "yellow"
+                : "green"
           }">
 
             ${
               x.u === "Alta"
                 ? "🔴"
                 : x.u === "Media"
-                ? "🟡"
-                : "🟢"
+                  ? "🟡"
+                  : "🟢"
             }
 
             ${esc(x.u)}
@@ -1242,19 +1270,19 @@ function dibujar(){
 
 
           ${
-            x.m.some(m => !m[1])
+            faltan
 
-            ? `
-              <span class="badge orange">
-                ⚠️ Falta material
-              </span>
-            `
+              ? `<span class="badge orange">
+                  ⚠️ Falta material
+                </span>`
 
-            : `
-              <span class="badge green">
-                📦 Completo
-              </span>
-            `
+              : materiales.length
+
+                ? `<span class="badge green">
+                    📦 Completo
+                  </span>`
+
+                : ""
           }
 
         </div>
@@ -1263,28 +1291,35 @@ function dibujar(){
         ${
           x.d
             ? `<div class="meta">
-                 📝 ${esc(x.d)}
-               </div>`
+                ${esc(x.d)}
+              </div>`
             : ""
         }
 
 
         ${
-          x.m.length
+          materiales.length
 
-          ? `
-            <div class="meta">
-              ${x.m
-                .map(m =>
-                  (m[1] ? "✅ " : "❌ ")
-                  + esc(m[0])
-                )
-                .join(" · ")
-              }
-            </div>
-          `
+            ? `<div class="meta">
+                ${materiales
+                  .map(
+                    m =>
+                      (m[1] ? "✅ " : "❌ ") +
+                      esc(m[0])
+                  )
+                  .join(" · ")}
+              </div>`
 
-          : ""
+            : ""
+        }
+
+
+        ${
+          x.obs
+            ? `<div class="meta">
+                📝 ${esc(x.obs)}
+              </div>`
+            : ""
         }
 
 
@@ -1297,7 +1332,6 @@ function dibujar(){
             ✏️ Editar
           </button>
 
-
           <button
             class="small"
             onclick="avanzar('${x.id}')"
@@ -1309,28 +1343,50 @@ function dibujar(){
 
       </div>
 
-    `).join("");
+    `;
 
+  }).join("");
 
 }
 
 
-/* ==========================================
-   FILTRO
-========================================== */
+/* =========================================================
+   FILTROS
+   ========================================================= */
 
-function filtro(x){
+function filtrar(nuevoModo){
 
-  modo = x;
+  modo = nuevoModo;
+
+  document
+    .querySelectorAll(".filter")
+    .forEach(x =>
+      x.classList.remove("active")
+    );
+
+  if(nuevoModo === "todos")
+    document
+      .getElementById("fTodos")
+      .classList.add("active");
+
+  if(nuevoModo === "pend")
+    document
+      .getElementById("fPend")
+      .classList.add("active");
+
+  if(nuevoModo === "falt")
+    document
+      .getElementById("fFalt")
+      .classList.add("active");
 
   dibujar();
 
 }
 
 
-/* ==========================================
+/* =========================================================
    NUEVO
-========================================== */
+   ========================================================= */
 
 function nuevo(){
 
@@ -1339,45 +1395,45 @@ function nuevo(){
 }
 
 
-/* ==========================================
+/* =========================================================
    EDITAR
-========================================== */
+   ========================================================= */
 
 function editar(id){
 
   edit = id;
 
-
   let x;
-
 
   if(id){
 
-    x =
-      datos.find(
-        y =>
-          String(y.id)
-          === String(id)
-      );
+    x = datos.find(
+      y => String(y.id) === String(id)
+    );
+
+    if(!x){
+
+      alert("No se encontró el trabajo.");
+
+      return;
+    }
 
   }else{
 
     x = {
 
       t:"",
-
       d:"",
-
       e:"",
-
-      f:
-        new Date()
-          .toISOString()
-          .slice(0,10),
+      f:new Date()
+        .toISOString()
+        .slice(0,10),
 
       u:"Media",
 
       st:"Pendiente",
+
+      obs:"",
 
       m:[]
 
@@ -1386,34 +1442,24 @@ function editar(id){
   }
 
 
-  if(!x) return;
-
-
   titulo.textContent =
     id
       ? "✏️ Editar trabajo"
       : "➕ Nuevo trabajo";
 
 
-  t.value = x.t;
-
-  d.value = x.d;
-
-  e.value = x.e;
-
-  f.value = x.f;
-
-  u.value = x.u;
-
-  st.value = x.st;
+  t.value = x.t || "";
+  d.value = x.d || "";
+  e.value = x.e || "";
+  f.value = x.f || "";
+  u.value = x.u || "Media";
+  st.value = x.st || "Pendiente";
+  obs.value = x.obs || "";
 
 
   ms.innerHTML = "";
 
-
-  (x.m || []).forEach(
-    material
-  );
+  (x.m || []).forEach(material);
 
 
   modal.classList.add("on");
@@ -1421,18 +1467,16 @@ function editar(id){
 }
 
 
-/* ==========================================
+/* =========================================================
    MATERIAL
-========================================== */
+   ========================================================= */
 
 function material(v=["",0]){
 
   const z =
     document.createElement("div");
 
-
-  z.className =
-    "material";
+  z.className = "material";
 
 
   z.innerHTML = `
@@ -1444,15 +1488,20 @@ function material(v=["",0]){
     >
 
     <label>
-
       <input
         type="checkbox"
         ${v[1] ? "checked" : ""}
       >
-
       ✅
-
     </label>
+
+    <button
+      type="button"
+      class="small"
+      onclick="this.parentElement.remove()"
+    >
+      🗑️
+    </button>
 
   `;
 
@@ -1462,17 +1511,15 @@ function material(v=["",0]){
 }
 
 
-/* ==========================================
+/* =========================================================
    GUARDAR
-========================================== */
+   ========================================================= */
 
 async function guardar(){
 
   if(!perfil){
 
-    alert(
-      "❌ No hay usuario autenticado."
-    );
+    alert("No hay usuario autenticado.");
 
     return;
   }
@@ -1480,9 +1527,7 @@ async function guardar(){
 
   if(!t.value.trim()){
 
-    alert(
-      "Escribí el trabajo."
-    );
+    alert("Escribí el trabajo.");
 
     return;
   }
@@ -1490,7 +1535,6 @@ async function guardar(){
 
   const materiales =
     [...ms.children]
-
       .map(x => {
 
         const input =
@@ -1503,19 +1547,37 @@ async function guardar(){
             'input[type="checkbox"]'
           );
 
-
         return [
 
-          input.value.trim(),
+          input
+            ? input.value.trim()
+            : "",
 
-          check.checked ? 1 : 0
+          check && check.checked
+            ? 1
+            : 0
 
         ];
 
       })
-
       .filter(x => x[0]);
 
+
+  /*
+   IMPORTANTE:
+   Tu tabla actual tiene estos nombres:
+
+   titulo
+   descripcion
+   ubicacion
+   prioridad
+   estado
+   fecha_programada
+   observaciones
+   creado_por
+
+   Por eso usamos exactamente esos nombres.
+  */
 
   const payload = {
 
@@ -1523,13 +1585,10 @@ async function guardar(){
       t.value.trim(),
 
     descripcion:
-      d.value.trim(),
+      d.value.trim() || null,
 
     ubicacion:
-      e.value.trim(),
-
-    fecha_programada:
-      f.value || null,
+      e.value.trim() || null,
 
     prioridad:
       u.value,
@@ -1537,47 +1596,53 @@ async function guardar(){
     estado:
       st.value,
 
-    materiales:
-      materiales
+    fecha_programada:
+      f.value || null,
+
+    observaciones:
+      construirObservaciones(
+        obs.value,
+        materiales
+      )
 
   };
 
 
-  let resultado;
+  let error;
 
 
   if(edit){
 
-    resultado =
+    const resultado =
       await db
         .from("trabajos")
         .update(payload)
         .eq("id",edit);
+
+    error = resultado.error;
 
   }else{
 
     payload.creado_por =
       perfil.id;
 
-
-    resultado =
+    const resultado =
       await db
         .from("trabajos")
         .insert(payload);
 
+    error = resultado.error;
+
   }
 
 
-  if(resultado.error){
+  if(error){
 
-    console.error(
-      resultado.error
-    );
-
+    console.error(error);
 
     alert(
-      "❌ No se pudo guardar:\n\n"
-      + resultado.error.message
+      "❌ No se pudo guardar:\n\n" +
+      error.message
     );
 
     return;
@@ -1586,25 +1651,63 @@ async function guardar(){
 
   cerrar();
 
-
   await cargarTrabajos();
 
 }
 
 
-/* ==========================================
-   CAMBIAR ESTADO
-========================================== */
+/* =========================================================
+   GUARDAR MATERIALES DENTRO DE OBSERVACIONES
+   ========================================================= */
+
+function construirObservaciones(texto, materiales){
+
+  let base =
+    (texto || "").trim();
+
+
+  /*
+   Como tu tabla actual no tiene una columna
+   "materiales", los guardamos dentro de
+   observaciones de forma especial.
+
+   Más adelante podemos agregar una columna
+   JSONB y dejarlo todavía mejor.
+  */
+
+  if(materiales.length){
+
+    const bloque =
+      "\n\n[MATERIALES]\n" +
+      materiales
+        .map(
+          m =>
+            (m[1] ? "✅ " : "❌ ") +
+            m[0]
+        )
+        .join("\n") +
+      "\n[/MATERIALES]";
+
+    return base + bloque;
+
+  }
+
+
+  return base || null;
+
+}
+
+
+/* =========================================================
+   AVANZAR ESTADO
+   ========================================================= */
 
 async function avanzar(id){
 
   const x =
     datos.find(
-      y =>
-        String(y.id)
-        === String(id)
+      y => String(y.id) === String(id)
     );
-
 
   if(!x) return;
 
@@ -1614,18 +1717,15 @@ async function avanzar(id){
 
   if(x.st === "Pendiente"){
 
-    nuevoEstado =
-      "En proceso";
+    nuevoEstado = "En proceso";
 
   }else if(x.st === "En proceso"){
 
-    nuevoEstado =
-      "Terminado";
+    nuevoEstado = "Terminado";
 
   }else{
 
-    nuevoEstado =
-      "Pendiente";
+    nuevoEstado = "Pendiente";
 
   }
 
@@ -1634,21 +1734,25 @@ async function avanzar(id){
     await db
       .from("trabajos")
       .update({
+
         estado:nuevoEstado,
 
         fecha_realizado:
           nuevoEstado === "Terminado"
             ? new Date().toISOString()
             : null
+
       })
       .eq("id",id);
 
 
   if(error){
 
+    console.error(error);
+
     alert(
-      "❌ No se pudo cambiar el estado:\n"
-      + error.message
+      "❌ No se pudo cambiar el estado:\n\n" +
+      error.message
     );
 
     return;
@@ -1660,135 +1764,48 @@ async function avanzar(id){
 }
 
 
-/* ==========================================
+/* =========================================================
    CERRAR MODAL
-========================================== */
+   ========================================================= */
 
 function cerrar(){
 
   modal.classList.remove("on");
 
-}
-
-
-/* ==========================================
-   ESCAPAR HTML
-========================================== */
-
-function esc(s){
-
-  return String(s ?? "")
-    .replace(
-      /[&<>"']/g,
-      c => ({
-
-        "&":"&amp;",
-        "<":"&lt;",
-        ">":"&gt;",
-        '"':"&quot;",
-        "'":"&#39;"
-
-      }[c])
-    );
+  edit = null;
 
 }
 
 
-/* ==========================================
-   MOSTRAR LOGIN
-========================================== */
+/* =========================================================
+   CERRAR MODAL HACIENDO CLICK AFUERA
+   ========================================================= */
 
-function mostrarLogin(){
+modal.addEventListener(
+  "click",
+  function(e){
 
-  loginEl.style.display =
-    "flex";
+    if(e.target === modal){
 
-  appEl.style.display =
-    "none";
-
-}
-
-
-/* ==========================================
-   SALIR
-========================================== */
-
-async function salir(){
-
-  await db.auth.signOut();
-
-  datos = [];
-
-  perfil = null;
-
-  mostrarLogin();
-
-}
-
-
-/* ==========================================
-   PROBAR SUPABASE
-========================================== */
-
-async function probarConexion(){
-
-  msg(
-    "🌐 Probando conexión..."
-  );
-
-
-  try{
-
-    const response =
-      await fetch(
-        SUPABASE_URL
-        + "/auth/v1/settings",
-        {
-          method:"GET",
-
-          headers:{
-            apikey:SUPABASE_KEY
-          }
-        }
-      );
-
-
-    if(response.ok){
-
-      msg(
-        "✅ Conexión con Supabase funcionando."
-      );
-
-    }else{
-
-      msg(
-        "⚠️ Supabase respondió HTTP "
-        + response.status
-      );
+      cerrar();
 
     }
 
-  }catch(error){
-
-    console.error(error);
-
-    msg(
-      "❌ El navegador no puede conectarse con Supabase."
-    );
-
   }
+);
 
-}
 
-
-/* ==========================================
+/* =========================================================
    CAMBIO DE SESION
-========================================== */
+   ========================================================= */
 
 db.auth.onAuthStateChange(
-  async (event, session) => {
+  async (event,session)=>{
 
     if(event === "SIGNED_OUT"){
+
+      perfil = null;
+      datos = [];
 
       mostrarLogin();
 
@@ -1798,18 +1815,16 @@ db.auth.onAuthStateChange(
 );
 
 
-/* ==========================================
+/* =========================================================
    INICIAR
-========================================== */
+   ========================================================= */
 
 (async function iniciar(){
 
   try{
 
     const {
-      data:{
-        session
-      }
+      data:{session}
     } =
       await db.auth.getSession();
 
@@ -1827,16 +1842,14 @@ db.auth.onAuthStateChange(
   }catch(error){
 
     console.error(
-      "INIT ERROR:",
+      "ERROR DE INICIO:",
       error
     );
 
-
     mostrarLogin();
 
-
     msg(
-      "❌ No se pudo iniciar la conexión con Supabase."
+      "❌ No se pudo conectar con Supabase."
     );
 
   }
@@ -1846,5 +1859,4 @@ db.auth.onAuthStateChange(
 </script>
 
 </body>
-
 </html>

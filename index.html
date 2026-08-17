@@ -1,259 +1,1850 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0f172a"><title>Mantenimiento</title>
+<!doctype html>
+<html lang="es">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<meta name="theme-color" content="#0f172a">
+
+<title>🛠️ Mantenimiento</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f1f5f9;color:#0f172a;font-family:system-ui,-apple-system,Segoe UI,sans-serif}header{background:#0f172a;color:#fff;padding:18px 16px 20px;border-radius:0 0 24px 24px}.bar{display:flex;justify-content:space-between;align-items:center}.logo{font-size:20px;font-weight:900}.hello{margin-top:18px;font-size:26px;font-weight:900}.sub{opacity:.7;font-size:13px}.wrap{padding:16px 14px 95px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:-8px}.stat{background:#fff;border-radius:18px;padding:15px;box-shadow:0 4px 15px #0000000b}.stat b{font-size:28px;display:block}.stat span{font-size:12px;color:#64748b}.section{display:flex;justify-content:space-between;align-items:center;margin:20px 2px 10px}.section h2{font-size:18px;margin:0}.add{border:0;border-radius:14px;background:#0f172a;color:white;padding:12px 15px;font-weight:800}.job{background:#fff;border-radius:18px;padding:15px;margin:10px 0;box-shadow:0 4px 15px #0000000b}.jt{font-size:16px;font-weight:850}.meta{font-size:12px;color:#64748b;margin-top:5px}.badges{display:flex;gap:6px;flex-wrap:wrap;margin:11px 0}.badge{padding:6px 9px;border-radius:999px;font-size:11px;font-weight:850}.red{background:#fee2e2;color:#991b1b}.yellow{background:#fef3c7;color:#92400e}.green{background:#dcfce7;color:#166534}.blue{background:#dbeafe;color:#1d4ed8}.orange{background:#ffedd5;color:#9a3412}.actions{display:flex;gap:7px;margin-top:12px}.small{border:0;border-radius:11px;padding:9px 11px;font-weight:750;background:#e2e8f0}.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e2e8f0;display:flex;justify-content:space-around;padding:9px 5px calc(9px + env(safe-area-inset-bottom));z-index:4}.nav{border:0;background:none;color:#64748b;font-size:11px;font-weight:750}.nav.active{color:#0f172a}.nav div{font-size:21px}.modal{position:fixed;inset:0;background:#0009;display:none;align-items:flex-end;z-index:10}.modal.on{display:flex}.sheet{background:#fff;border-radius:24px 24px 0 0;width:100%;padding:20px;max-height:90vh;overflow:auto}.sheet h2{margin-top:0}.form{display:grid;gap:10px}.form input,.form textarea,.form select{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:12px;font:inherit}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.save{background:#0f172a;color:#fff;border:0;border-radius:13px;padding:14px;font-weight:850}.cancel{background:#e2e8f0;border:0;border-radius:13px;padding:14px;font-weight:800}.material{display:flex;gap:6px;margin:7px 0}.material input{flex:1}.login{min-height:100vh;background:#0f172a;display:flex;align-items:center;padding:20px}.loginbox{background:#fff;border-radius:24px;padding:25px;width:100%}.loginbox h1{font-size:26px}.loginbox button{width:100%;margin-top:8px}.hint{font-size:11px;color:#64748b;margin-top:12px}
-</style></head><body>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:#f1f5f9;
+  color:#0f172a;
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+.login{
+  min-height:100vh;
+  background:#0f172a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.loginbox{
+  background:white;
+  border-radius:24px;
+  padding:28px;
+  width:100%;
+  max-width:420px;
+  box-shadow:0 20px 50px #0005;
+}
+
+.loginbox h1{
+  font-size:28px;
+  margin-top:0;
+}
+
+.form{
+  display:grid;
+  gap:10px;
+}
+
+.form input,
+.form textarea,
+.form select{
+  width:100%;
+  padding:13px;
+  border:1px solid #cbd5e1;
+  border-radius:12px;
+  font:inherit;
+}
+
+.save{
+  background:#0f172a;
+  color:white;
+  border:0;
+  border-radius:13px;
+  padding:14px;
+  font-weight:850;
+  cursor:pointer;
+}
+
+.cancel{
+  background:#e2e8f0;
+  border:0;
+  border-radius:13px;
+  padding:14px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.hint{
+  font-size:12px;
+  color:#64748b;
+  margin-top:12px;
+  line-height:1.5;
+}
+
+/* =========================
+   APP
+========================= */
+
+header{
+  background:#0f172a;
+  color:white;
+  padding:18px 16px 20px;
+  border-radius:0 0 24px 24px;
+}
+
+.bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:900;
+}
+
+.hello{
+  margin-top:18px;
+  font-size:26px;
+  font-weight:900;
+}
+
+.sub{
+  opacity:.7;
+  font-size:13px;
+}
+
+.wrap{
+  padding:16px 14px 95px;
+}
+
+/* =========================
+   ESTADISTICAS
+========================= */
+
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:-8px;
+}
+
+.stat{
+  background:#fff;
+  border-radius:18px;
+  padding:15px;
+  box-shadow:0 4px 15px #0000000b;
+}
+
+.stat b{
+  font-size:28px;
+  display:block;
+}
+
+.stat span{
+  font-size:12px;
+  color:#64748b;
+}
+
+/* =========================
+   TRABAJOS
+========================= */
+
+.section{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:20px 2px 10px;
+}
+
+.section h2{
+  font-size:18px;
+  margin:0;
+}
+
+.add{
+  border:0;
+  border-radius:14px;
+  background:#0f172a;
+  color:white;
+  padding:12px 15px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.search{
+  width:100%;
+  padding:13px;
+  border:1px solid #cbd5e1;
+  border-radius:13px;
+  font:inherit;
+  margin-bottom:10px;
+}
+
+.job{
+  background:#fff;
+  border-radius:18px;
+  padding:15px;
+  margin:10px 0;
+  box-shadow:0 4px 15px #0000000b;
+}
+
+.jt{
+  font-size:16px;
+  font-weight:850;
+}
+
+.meta{
+  font-size:12px;
+  color:#64748b;
+  margin-top:5px;
+}
+
+.badges{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin:11px 0;
+}
+
+.badge{
+  padding:6px 9px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:850;
+}
+
+.red{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.yellow{
+  background:#fef3c7;
+  color:#92400e;
+}
+
+.green{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.blue{
+  background:#dbeafe;
+  color:#1d4ed8;
+}
+
+.orange{
+  background:#ffedd5;
+  color:#9a3412;
+}
+
+.actions{
+  display:flex;
+  gap:7px;
+  margin-top:12px;
+}
+
+.small{
+  border:0;
+  border-radius:11px;
+  padding:9px 11px;
+  font-weight:750;
+  background:#e2e8f0;
+  cursor:pointer;
+}
+
+/* =========================
+   MENU INFERIOR
+========================= */
+
+.bottom{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#fff;
+  border-top:1px solid #e2e8f0;
+  display:flex;
+  justify-content:space-around;
+  padding:9px 5px calc(9px + env(safe-area-inset-bottom));
+  z-index:4;
+}
+
+.nav{
+  border:0;
+  background:none;
+  color:#64748b;
+  font-size:11px;
+  font-weight:750;
+  cursor:pointer;
+}
+
+.nav.active{
+  color:#0f172a;
+}
+
+.nav div{
+  font-size:21px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:#0009;
+  display:none;
+  align-items:flex-end;
+  z-index:10;
+}
+
+.modal.on{
+  display:flex;
+}
+
+.sheet{
+  background:#fff;
+  border-radius:24px 24px 0 0;
+  width:100%;
+  padding:20px;
+  max-height:90vh;
+  overflow:auto;
+}
+
+.sheet h2{
+  margin-top:0;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.material{
+  display:flex;
+  gap:6px;
+  margin:7px 0;
+  align-items:center;
+}
+
+.material input[type="text"]{
+  flex:1;
+}
+
+.material label{
+  white-space:nowrap;
+}
+
+/* =========================
+   PC
+========================= */
+
+@media(min-width:700px){
+
+  .loginbox{
+    max-width:450px;
+  }
+
+  .wrap{
+    max-width:1100px;
+    margin:auto;
+  }
+
+  .stats{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ==========================================
+     LOGIN
+========================================== -->
+
 <div id="login" class="login">
+
   <div class="loginbox">
+
     <h1>🛠️ Mantenimiento</h1>
+
     <p>Entrá para ver los trabajos.</p>
+
     <div class="form">
-      <input id="user" type="email" placeholder="📧 Email">
-      <input id="pass" type="password" placeholder="🔒 Contraseña">
-      <button class="save" onclick="entrar()">🔐 Ingresar</button>
-      <button class="cancel" onclick="registrar()">👤 Crear usuario</button>
+
+      <input
+        id="user"
+        type="email"
+        placeholder="📧 Email"
+        autocomplete="email"
+      >
+
+      <input
+        id="pass"
+        type="password"
+        placeholder="🔒 Contraseña"
+        autocomplete="current-password"
+      >
+
+      <button
+        class="save"
+        onclick="entrar()"
+      >
+        🔐 Ingresar
+      </button>
+
+      <button
+        class="cancel"
+        onclick="registrar()"
+      >
+        👤 Crear usuario
+      </button>
+
     </div>
-    <div id="loginMsg" class="hint">Los usuarios quedan guardados online en Supabase.</div><button class="cancel" type="button" onclick="probarConexion()">🌐 Probar conexión con Supabase</button>
+
+    <div id="loginMsg" class="hint">
+      Los usuarios quedan guardados online en Supabase.
+    </div>
+
+    <button
+      class="cancel"
+      style="width:100%;margin-top:10px"
+      onclick="probarConexion()"
+    >
+      🌐 Probar conexión con Supabase
+    </button>
+
   </div>
+
 </div>
-<div id="app" style="display:none"><header><div class="bar"><div class="logo">🛠️ Mantenimiento</div><button onclick="salir()" style="border:0;background:#fff2;color:white;border-radius:10px;padding:8px">Salir</button></div><div class="hello">Hola 👋</div><div class="sub">Panel de mantenimiento</div></header>
-<div class="wrap"><div class="stats"><div class="stat"><b id="s1">0</b><span>🔴 Urgentes</span></div><div class="stat"><b id="s2">0</b><span>🟡 Pendientes</span></div><div class="stat"><b id="s3">0</b><span>⚠️ Faltan materiales</span></div><div class="stat"><b id="s4">0</b><span>✅ Terminados</span></div></div>
-<div class="section"><h2>📋 Próximos trabajos</h2><button class="add" onclick="nuevo()">＋ Nuevo</button></div><input id="buscar" oninput="dibujar()" placeholder="🔎 Buscar..." style="width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:13px">
-<div id="lista"></div></div>
-<nav class="bottom"><button class="nav active"><div>🏠</div>Inicio</button><button class="nav" onclick="filtro('pend')"><div>🔧</div>Trabajos</button><button class="nav" onclick="filtro('falt')"><div>📦</div>Materiales</button><button class="nav"><div>👥</div>Equipo</button></nav></div>
-<div id="modal" class="modal"><div class="sheet"><h2 id="titulo">➕ Nuevo trabajo</h2><div class="form"><input id="t" placeholder="🔧 Trabajo a realizar"><textarea id="d" rows="3" placeholder="📝 Descripción"></textarea><input id="e" placeholder="🏭 Equipo / sector"><div class="row"><input id="f" type="date"><select id="u"><option>Alta</option><option selected>Media</option><option>Baja</option></select></div><select id="st"><option>Pendiente</option><option>En proceso</option><option>Terminado</option></select><h3>📦 Materiales</h3><div id="ms"></div><button class="cancel" onclick="material()">＋ Agregar material</button><button class="save" onclick="guardar()">💾 Guardar trabajo</button><button class="cancel" onclick="cerrar()">Cancelar</button></div></div></div>
+
+
+<!-- ==========================================
+     APLICACION
+========================================== -->
+
+<div id="app" style="display:none">
+
+<header>
+
+  <div class="bar">
+
+    <div class="logo">
+      🛠️ Mantenimiento
+    </div>
+
+    <button
+      onclick="salir()"
+      style="
+        border:0;
+        background:#ffffff22;
+        color:white;
+        border-radius:10px;
+        padding:8px 12px;
+      "
+    >
+      Salir
+    </button>
+
+  </div>
+
+  <div class="hello">
+    Hola 👋
+  </div>
+
+  <div class="sub">
+    Panel de mantenimiento
+  </div>
+
+</header>
+
+
+<div class="wrap">
+
+  <!-- ESTADISTICAS -->
+
+  <div class="stats">
+
+    <div class="stat">
+      <b id="s1">0</b>
+      <span>🔴 Urgentes</span>
+    </div>
+
+    <div class="stat">
+      <b id="s2">0</b>
+      <span>🟡 Pendientes</span>
+    </div>
+
+    <div class="stat">
+      <b id="s3">0</b>
+      <span>⚠️ Faltan materiales</span>
+    </div>
+
+    <div class="stat">
+      <b id="s4">0</b>
+      <span>✅ Terminados</span>
+    </div>
+
+  </div>
+
+
+  <div class="section">
+
+    <h2>
+      📋 Próximos trabajos
+    </h2>
+
+    <button
+      class="add"
+      onclick="nuevo()"
+    >
+      ＋ Nuevo
+    </button>
+
+  </div>
+
+
+  <input
+    id="buscar"
+    class="search"
+    oninput="dibujar()"
+    placeholder="🔎 Buscar trabajo, equipo o ubicación..."
+  >
+
+
+  <div id="lista"></div>
+
+</div>
+
+
+<!-- MENU -->
+
+<nav class="bottom">
+
+  <button
+    class="nav active"
+    onclick="filtro('todos')"
+  >
+    <div>🏠</div>
+    Inicio
+  </button>
+
+  <button
+    class="nav"
+    onclick="filtro('pend')"
+  >
+    <div>🔧</div>
+    Trabajos
+  </button>
+
+  <button
+    class="nav"
+    onclick="filtro('falt')"
+  >
+    <div>📦</div>
+    Materiales
+  </button>
+
+</nav>
+
+</div>
+
+
+<!-- ==========================================
+     MODAL NUEVO / EDITAR
+========================================== -->
+
+<div id="modal" class="modal">
+
+  <div class="sheet">
+
+    <h2 id="titulo">
+      ➕ Nuevo trabajo
+    </h2>
+
+    <div class="form">
+
+      <input
+        id="t"
+        placeholder="🔧 Trabajo a realizar"
+      >
+
+      <textarea
+        id="d"
+        rows="3"
+        placeholder="📝 Descripción"
+      ></textarea>
+
+      <input
+        id="e"
+        placeholder="🏭 Equipo / sector / ubicación"
+      >
+
+      <div class="row">
+
+        <input
+          id="f"
+          type="date"
+        >
+
+        <select id="u">
+
+          <option value="Alta">
+            Alta
+          </option>
+
+          <option value="Media" selected>
+            Media
+          </option>
+
+          <option value="Baja">
+            Baja
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <select id="st">
+
+        <option value="Pendiente">
+          Pendiente
+        </option>
+
+        <option value="En proceso">
+          En proceso
+        </option>
+
+        <option value="Terminado">
+          Terminado
+        </option>
+
+      </select>
+
+
+      <h3>
+        📦 Materiales
+      </h3>
+
+      <div id="ms"></div>
+
+
+      <button
+        class="cancel"
+        onclick="material()"
+      >
+        ＋ Agregar material
+      </button>
+
+
+      <button
+        class="save"
+        onclick="guardar()"
+      >
+        💾 Guardar trabajo
+      </button>
+
+
+      <button
+        class="cancel"
+        onclick="cerrar()"
+      >
+        Cancelar
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- SUPABASE -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
 <script>
-const SUPABASE_URL = "https://ujyrggzrcnbddkbvzvjv.supabase.co";
-const SUPABASE_KEY = "sb_publishable_oerDQnQCB89-BLPi7-VW2g_gs5TQmUW";
-const { createClient } = supabase;
-const db = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+/* ==========================================
+   SUPABASE
+========================================== */
+
+const SUPABASE_URL =
+  "https://ujyrgqzrcnbddkbvzvjv.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_oerDQnQCB89-BLPi7-VW2g_gs5TQmUW";
+
+const db = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+
+/* ==========================================
+   VARIABLES
+========================================== */
 
 let datos = [];
-let edit = null, modo = "todos", perfil = null;
 
-function msg(t){
-  const el=document.getElementById("loginMsg");
-  if(el) el.textContent=t;
-}
+let edit = null;
 
-async function entrar(){
-  const email=document.getElementById("user").value.trim();
-  const password=document.getElementById("pass").value;
-  if(!email || !password) return msg("Completá email y contraseña.");
-  msg("Ingresando...");
-  try{
-    const {error}=await db.auth.signInWithPassword({email,password});
-    if(error) return msg("No se pudo ingresar: "+error.message);
-    await cargarUsuario();
-  }catch(e){
-    console.error("LOGIN ERROR",e);
-    msg("Error de conexión. Si aparece 'Failed to fetch', probá el botón 🌐 de abajo.");
+let modo = "todos";
+
+let perfil = null;
+
+
+/* ==========================================
+   ELEMENTOS
+========================================== */
+
+const loginEl =
+  document.getElementById("login");
+
+const appEl =
+  document.getElementById("app");
+
+const loginMsg =
+  document.getElementById("loginMsg");
+
+const lista =
+  document.getElementById("lista");
+
+const modal =
+  document.getElementById("modal");
+
+const titulo =
+  document.getElementById("titulo");
+
+const t =
+  document.getElementById("t");
+
+const d =
+  document.getElementById("d");
+
+const e =
+  document.getElementById("e");
+
+const f =
+  document.getElementById("f");
+
+const u =
+  document.getElementById("u");
+
+const st =
+  document.getElementById("st");
+
+const ms =
+  document.getElementById("ms");
+
+const s1 =
+  document.getElementById("s1");
+
+const s2 =
+  document.getElementById("s2");
+
+const s3 =
+  document.getElementById("s3");
+
+const s4 =
+  document.getElementById("s4");
+
+
+/* ==========================================
+   MENSAJE
+========================================== */
+
+function msg(text){
+
+  if(loginMsg){
+    loginMsg.textContent = text;
   }
+
 }
+
+
+/* ==========================================
+   REGISTRAR USUARIO
+========================================== */
 
 async function registrar(){
-  const email=document.getElementById("user").value.trim();
-  const password=document.getElementById("pass").value;
-  if(!email || !password) return msg("Para crear el usuario completá email y contraseña.");
-  if(password.length<6) return msg("La contraseña debe tener al menos 6 caracteres.");
-  msg("Creando usuario...");
+
+  const email =
+    document.getElementById("user").value.trim();
+
+  const password =
+    document.getElementById("pass").value;
+
+  if(!email || !password){
+
+    msg(
+      "Completá email y contraseña."
+    );
+
+    return;
+  }
+
+  if(password.length < 6){
+
+    msg(
+      "La contraseña debe tener al menos 6 caracteres."
+    );
+
+    return;
+  }
+
+  msg("👤 Creando usuario...");
+
   try{
-    const {data,error}=await db.auth.signUp({
-      email,
-      password,
-      options:{emailRedirectTo:window.location.href}
-    });
-    if(error) return msg("No se pudo crear: "+error.message);
-    if(!data.session){
-      msg("Usuario creado. Revisá tu email si Supabase pide confirmación y después ingresá.");
+
+    const {data,error} =
+      await db.auth.signUp({
+
+        email:email,
+
+        password:password
+
+      });
+
+
+    if(error){
+
+      console.error(error);
+
+      msg(
+        "❌ No se pudo crear: "
+        + error.message
+      );
+
       return;
     }
+
+
+    if(!data.session){
+
+      msg(
+        "✅ Usuario creado. Revisá tu email si Supabase pide confirmación. Después ingresá."
+      );
+
+      return;
+    }
+
+
     await cargarUsuario();
-  }catch(e){
-    console.error("SIGNUP ERROR",e);
-    msg("❌ Failed to fetch: el navegador no está pudiendo comunicarse con Supabase. Probá 🌐 Probar conexión.");
+
+  }catch(error){
+
+    console.error(error);
+
+    msg(
+      "❌ Error conectando con Supabase."
+    );
+
   }
+
 }
 
-async function probarConexion(){
-  msg("Probando conexión...");
-  try{
-    const r=await fetch(SUPABASE_URL+"/auth/v1/settings",{
-      method:"GET",
-      headers:{apikey:SUPABASE_KEY}
-    });
-    const body=await r.text();
-    if(r.ok){
-      msg("✅ Conexión OK con Supabase. Ahora probá Crear usuario.");
-    }else{
-      msg("⚠️ Supabase respondió HTTP "+r.status+". Revisá la clave publishable y el proyecto.");
-      console.log("SUPABASE RESPONSE",r.status,body);
-    }
-  }catch(e){
-    console.error("SUPABASE CONNECTION ERROR",e);
-    msg("❌ No hay conexión con Supabase desde este navegador. Revisá internet, extensiones/bloqueadores y la URL del proyecto.");
+
+/* ==========================================
+   INGRESAR
+========================================== */
+
+async function entrar(){
+
+  const email =
+    document.getElementById("user").value.trim();
+
+  const password =
+    document.getElementById("pass").value;
+
+
+  if(!email || !password){
+
+    msg(
+      "Completá email y contraseña."
+    );
+
+    return;
   }
+
+
+  msg("🔐 Ingresando...");
+
+
+  try{
+
+    const {error} =
+      await db.auth.signInWithPassword({
+
+        email:email,
+
+        password:password
+
+      });
+
+
+    if(error){
+
+      msg(
+        "❌ No se pudo ingresar: "
+        + error.message
+      );
+
+      return;
+    }
+
+
+    await cargarUsuario();
+
+
+  }catch(error){
+
+    console.error(error);
+
+    msg(
+      "❌ Error de conexión con Supabase."
+    );
+
+  }
+
 }
+
+
+/* ==========================================
+   CARGAR USUARIO
+========================================== */
 
 async function cargarUsuario(){
-  const {data:{user:usr}}=await db.auth.getUser();
-  if(!usr){ mostrarLogin(); return; }
 
-  // Busca el perfil asociado al usuario autenticado.
-  const {data:p,error}=await db.from("perfiles").select("*").eq("id",usr.id).maybeSingle();
-  if(error){
-    console.error(error);
-    msg("Entraste, pero falta configurar el perfil en la base.");
+  const {
+    data:{user:usr}
+  } = await db.auth.getUser();
+
+
+  if(!usr){
+
+    mostrarLogin();
+
     return;
   }
-  perfil=p || {id:usr.id,nombre:usr.email,rol:"tecnico"};
-  login.style.display="none"; app.style.display="block";
-  document.querySelector(".hello").textContent="Hola 👋 "+(perfil.nombre || usr.email.split("@")[0]);
+
+
+  /* BUSCAR PERFIL */
+
+  let {
+    data:p,
+    error
+  } =
+    await db
+      .from("perfiles")
+      .select("*")
+      .eq("id",usr.id)
+      .maybeSingle();
+
+
+  /* CREAR PERFIL SI NO EXISTE */
+
+  if(!p){
+
+    const nuevoPerfil = {
+
+      id:usr.id,
+
+      nombre:
+        usr.email
+          ? usr.email.split("@")[0]
+          : "Usuario",
+
+      email:usr.email,
+
+      rol:"tecnico"
+
+    };
+
+
+    const resultado =
+      await db
+        .from("perfiles")
+        .insert(nuevoPerfil)
+        .select()
+        .single();
+
+
+    if(resultado.error){
+
+      console.error(
+        "ERROR PERFIL:",
+        resultado.error
+      );
+
+    }else{
+
+      p = resultado.data;
+
+    }
+
+  }
+
+
+  if(error && error.code !== "PGRST116"){
+
+    console.error(error);
+
+  }
+
+
+  perfil =
+    p || {
+
+      id:usr.id,
+
+      nombre:
+        usr.email
+          ? usr.email.split("@")[0]
+          : "Usuario",
+
+      email:usr.email,
+
+      rol:"tecnico"
+
+    };
+
+
+  loginEl.style.display =
+    "none";
+
+  appEl.style.display =
+    "block";
+
+
+  document.querySelector(".hello")
+    .textContent =
+      "Hola 👋 "
+      + (
+        perfil.nombre
+        || usr.email.split("@")[0]
+      );
+
+
   await cargarTrabajos();
+
 }
 
-function mostrarLogin(){
-  login.style.display="flex"; app.style.display="none";
-}
 
-async function salir(){
-  await db.auth.signOut();
-  datos=[];
-  mostrarLogin();
-}
+/* ==========================================
+   CARGAR TRABAJOS
+========================================== */
 
 async function cargarTrabajos(){
-  const {data,error}=await db.from("trabajos")
-    .select("*")
-    .order("fecha",{ascending:true});
+
+  const {
+    data,
+    error
+  } =
+    await db
+      .from("trabajos")
+      .select("*")
+      .order(
+        "fecha_programada",
+        {ascending:true}
+      );
+
+
   if(error){
+
     console.error(error);
-    alert("No pude leer los trabajos: "+error.message);
+
+    alert(
+      "❌ No pude leer los trabajos:\n"
+      + error.message
+    );
+
     return;
   }
-  datos=(data||[]).map(x=>({
-    id:x.id,t:x.titulo||"",d:x.descripcion||"",e:x.equipo_sector||"",
-    f:x.fecha||"",u:x.prioridad||"Media",st:x.estado||"Pendiente",
-    m:Array.isArray(x.materiales)?x.materiales:[]
-  }));
+
+
+  datos =
+    (data || []).map(x => ({
+
+      id:x.id,
+
+      t:x.titulo || "",
+
+      d:x.descripcion || "",
+
+      e:x.ubicacion || "",
+
+      f:x.fecha_programada || "",
+
+      u:x.prioridad || "Media",
+
+      st:x.estado || "Pendiente",
+
+      m:Array.isArray(x.materiales)
+        ? x.materiales
+        : []
+
+    }));
+
+
   dibujar();
+
 }
 
-function filtro(x){modo=x;dibujar()}
+
+/* ==========================================
+   DIBUJAR
+========================================== */
 
 function dibujar(){
-  const q=(document.getElementById("buscar").value||"").toLowerCase();
-  s1.textContent=datos.filter(x=>x.u=="Alta"&&x.st!="Terminado").length;
-  s2.textContent=datos.filter(x=>x.st=="Pendiente").length;
-  s3.textContent=datos.filter(x=>x.m.some(m=>!m[1])&&x.st!="Terminado").length;
-  s4.textContent=datos.filter(x=>x.st=="Terminado").length;
 
-  let a=datos.filter(x=>{
-    let f=modo=="todos"||modo=="pend"&&x.st!="Terminado"||modo=="falt"&&x.m.some(m=>!m[1]);
-    return f&&(x.t+x.d+x.e).toLowerCase().includes(q)
-  });
-  lista.innerHTML=a.map(x=>`<div class="job">
-    <div class="jt">${esc(x.t)}</div>
-    <div class="meta">🏭 ${esc(x.e)} · 📅 ${x.f||"Sin fecha"}</div>
-    <div class="badges">
-      <span class="badge ${x.u=="Alta"?"red":x.u=="Media"?"yellow":"green"}">${x.u=="Alta"?"🔴":x.u=="Media"?"🟡":"🟢"} ${esc(x.u)}</span>
-      <span class="badge blue">🔧 ${esc(x.st)}</span>
-      ${x.m.some(m=>!m[1])?'<span class="badge orange">⚠️ Falta material</span>':'<span class="badge green">📦 Completo</span>'}
-    </div>
-    <div class="meta">${esc(x.d)}</div>
-    <div class="meta">${x.m.map(m=>(m[1]?"✅ ":"❌ ")+esc(m[0])).join(" · ")}</div>
-    <div class="actions">
-      <button class="small" onclick="editar('${x.id}')">✏️ Editar</button>
-      <button class="small" onclick="avanzar('${x.id}')">▶️ Estado</button>
-    </div>
-  </div>`).join("");
+  const q =
+    (
+      document.getElementById("buscar")
+        .value || ""
+    ).toLowerCase();
+
+
+  s1.textContent =
+    datos.filter(
+      x =>
+        x.u === "Alta"
+        && x.st !== "Terminado"
+    ).length;
+
+
+  s2.textContent =
+    datos.filter(
+      x =>
+        x.st === "Pendiente"
+    ).length;
+
+
+  s3.textContent =
+    datos.filter(
+      x =>
+        x.m.some(m => !m[1])
+        && x.st !== "Terminado"
+    ).length;
+
+
+  s4.textContent =
+    datos.filter(
+      x =>
+        x.st === "Terminado"
+    ).length;
+
+
+  const trabajos =
+    datos.filter(x => {
+
+      let filtro = true;
+
+
+      if(modo === "pend"){
+
+        filtro =
+          x.st !== "Terminado";
+
+      }
+
+
+      if(modo === "falt"){
+
+        filtro =
+          x.m.some(m => !m[1]);
+
+      }
+
+
+      const texto =
+        (
+          x.t
+          + " "
+          + x.d
+          + " "
+          + x.e
+        ).toLowerCase();
+
+
+      return filtro
+        && texto.includes(q);
+
+    });
+
+
+  lista.innerHTML =
+    trabajos.map(x => `
+
+      <div class="job">
+
+        <div class="jt">
+          ${esc(x.t)}
+        </div>
+
+        <div class="meta">
+          🏭 ${esc(x.e || "Sin ubicación")}
+          ·
+          📅 ${x.f || "Sin fecha"}
+        </div>
+
+
+        <div class="badges">
+
+          <span class="badge ${
+            x.u === "Alta"
+              ? "red"
+              : x.u === "Media"
+              ? "yellow"
+              : "green"
+          }">
+
+            ${
+              x.u === "Alta"
+                ? "🔴"
+                : x.u === "Media"
+                ? "🟡"
+                : "🟢"
+            }
+
+            ${esc(x.u)}
+
+          </span>
+
+
+          <span class="badge blue">
+
+            🔧 ${esc(x.st)}
+
+          </span>
+
+
+          ${
+            x.m.some(m => !m[1])
+
+            ? `
+              <span class="badge orange">
+                ⚠️ Falta material
+              </span>
+            `
+
+            : `
+              <span class="badge green">
+                📦 Completo
+              </span>
+            `
+          }
+
+        </div>
+
+
+        ${
+          x.d
+            ? `<div class="meta">
+                 📝 ${esc(x.d)}
+               </div>`
+            : ""
+        }
+
+
+        ${
+          x.m.length
+
+          ? `
+            <div class="meta">
+              ${x.m
+                .map(m =>
+                  (m[1] ? "✅ " : "❌ ")
+                  + esc(m[0])
+                )
+                .join(" · ")
+              }
+            </div>
+          `
+
+          : ""
+        }
+
+
+        <div class="actions">
+
+          <button
+            class="small"
+            onclick="editar('${x.id}')"
+          >
+            ✏️ Editar
+          </button>
+
+
+          <button
+            class="small"
+            onclick="avanzar('${x.id}')"
+          >
+            ▶️ Estado
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join("");
+
+
 }
 
-function nuevo(){editar(null)}
+
+/* ==========================================
+   FILTRO
+========================================== */
+
+function filtro(x){
+
+  modo = x;
+
+  dibujar();
+
+}
+
+
+/* ==========================================
+   NUEVO
+========================================== */
+
+function nuevo(){
+
+  editar(null);
+
+}
+
+
+/* ==========================================
+   EDITAR
+========================================== */
 
 function editar(id){
-  edit=id;
-  let x=id?datos.find(y=>String(y.id)==String(id)):
-    {t:"",d:"",e:"",f:new Date().toISOString().slice(0,10),u:"Media",st:"Pendiente",m:[]};
-  titulo.textContent=id?"✏️ Editar trabajo":"➕ Nuevo trabajo";
-  t.value=x.t; d.value=x.d; e.value=x.e; f.value=x.f; u.value=x.u; st.value=x.st;
-  ms.innerHTML=""; (x.m||[]).forEach(material);
+
+  edit = id;
+
+
+  let x;
+
+
+  if(id){
+
+    x =
+      datos.find(
+        y =>
+          String(y.id)
+          === String(id)
+      );
+
+  }else{
+
+    x = {
+
+      t:"",
+
+      d:"",
+
+      e:"",
+
+      f:
+        new Date()
+          .toISOString()
+          .slice(0,10),
+
+      u:"Media",
+
+      st:"Pendiente",
+
+      m:[]
+
+    };
+
+  }
+
+
+  if(!x) return;
+
+
+  titulo.textContent =
+    id
+      ? "✏️ Editar trabajo"
+      : "➕ Nuevo trabajo";
+
+
+  t.value = x.t;
+
+  d.value = x.d;
+
+  e.value = x.e;
+
+  f.value = x.f;
+
+  u.value = x.u;
+
+  st.value = x.st;
+
+
+  ms.innerHTML = "";
+
+
+  (x.m || []).forEach(
+    material
+  );
+
+
   modal.classList.add("on");
+
 }
+
+
+/* ==========================================
+   MATERIAL
+========================================== */
 
 function material(v=["",0]){
-  let z=document.createElement("div"); z.className="material";
-  z.innerHTML=`<input value="${esc(v[0])}" placeholder="Material">
-  <label><input type="checkbox" ${v[1]?"checked":""}> ✅</label>`;
+
+  const z =
+    document.createElement("div");
+
+
+  z.className =
+    "material";
+
+
+  z.innerHTML = `
+
+    <input
+      type="text"
+      value="${esc(v[0])}"
+      placeholder="Material"
+    >
+
+    <label>
+
+      <input
+        type="checkbox"
+        ${v[1] ? "checked" : ""}
+      >
+
+      ✅
+
+    </label>
+
+  `;
+
+
   ms.appendChild(z);
+
 }
+
+
+/* ==========================================
+   GUARDAR
+========================================== */
 
 async function guardar(){
-  if(!perfil) return alert("No hay usuario autenticado.");
-  let m=[...ms.children].map(x=>[
-    x.querySelector("input").value,
-    x.querySelector("input[type=checkbox]").checked?1:0
-  ]).filter(x=>x[0]);
 
-  if(!t.value.trim()) return alert("Escribí el trabajo.");
+  if(!perfil){
 
-  const payload={
-    titulo:t.value.trim(),
-    descripcion:d.value,
-    equipo_sector:e.value,
-    fecha:f.value||null,
-    prioridad:u.value,
-    estado:st.value,
-    materiales:m
+    alert(
+      "❌ No hay usuario autenticado."
+    );
+
+    return;
+  }
+
+
+  if(!t.value.trim()){
+
+    alert(
+      "Escribí el trabajo."
+    );
+
+    return;
+  }
+
+
+  const materiales =
+    [...ms.children]
+
+      .map(x => {
+
+        const input =
+          x.querySelector(
+            'input[type="text"]'
+          );
+
+        const check =
+          x.querySelector(
+            'input[type="checkbox"]'
+          );
+
+
+        return [
+
+          input.value.trim(),
+
+          check.checked ? 1 : 0
+
+        ];
+
+      })
+
+      .filter(x => x[0]);
+
+
+  const payload = {
+
+    titulo:
+      t.value.trim(),
+
+    descripcion:
+      d.value.trim(),
+
+    ubicacion:
+      e.value.trim(),
+
+    fecha_programada:
+      f.value || null,
+
+    prioridad:
+      u.value,
+
+    estado:
+      st.value,
+
+    materiales:
+      materiales
+
   };
 
-  let error;
+
+  let resultado;
+
+
   if(edit){
-    ({error}=await db.from("trabajos").update(payload).eq("id",edit));
+
+    resultado =
+      await db
+        .from("trabajos")
+        .update(payload)
+        .eq("id",edit);
+
   }else{
-    payload.creado_por=perfil.id;
-    ({error}=await db.from("trabajos").insert(payload));
+
+    payload.creado_por =
+      perfil.id;
+
+
+    resultado =
+      await db
+        .from("trabajos")
+        .insert(payload);
+
   }
 
-  if(error){
-    console.error(error);
-    return alert("No se pudo guardar: "+error.message);
+
+  if(resultado.error){
+
+    console.error(
+      resultado.error
+    );
+
+
+    alert(
+      "❌ No se pudo guardar:\n\n"
+      + resultado.error.message
+    );
+
+    return;
   }
+
+
   cerrar();
+
+
   await cargarTrabajos();
+
 }
+
+
+/* ==========================================
+   CAMBIAR ESTADO
+========================================== */
 
 async function avanzar(id){
-  let x=datos.find(y=>String(y.id)==String(id));
-  if(!x)return;
-  x.st=x.st=="Pendiente"?"En proceso":x.st=="En proceso"?"Terminado":"Pendiente";
-  const {error}=await db.from("trabajos").update({estado:x.st}).eq("id",id);
-  if(error) return alert("No se pudo cambiar el estado: "+error.message);
-  dibujar();
+
+  const x =
+    datos.find(
+      y =>
+        String(y.id)
+        === String(id)
+    );
+
+
+  if(!x) return;
+
+
+  let nuevoEstado;
+
+
+  if(x.st === "Pendiente"){
+
+    nuevoEstado =
+      "En proceso";
+
+  }else if(x.st === "En proceso"){
+
+    nuevoEstado =
+      "Terminado";
+
+  }else{
+
+    nuevoEstado =
+      "Pendiente";
+
+  }
+
+
+  const {error} =
+    await db
+      .from("trabajos")
+      .update({
+        estado:nuevoEstado,
+
+        fecha_realizado:
+          nuevoEstado === "Terminado"
+            ? new Date().toISOString()
+            : null
+      })
+      .eq("id",id);
+
+
+  if(error){
+
+    alert(
+      "❌ No se pudo cambiar el estado:\n"
+      + error.message
+    );
+
+    return;
+  }
+
+
+  await cargarTrabajos();
+
 }
 
-function cerrar(){modal.classList.remove("on")}
+
+/* ==========================================
+   CERRAR MODAL
+========================================== */
+
+function cerrar(){
+
+  modal.classList.remove("on");
+
+}
+
+
+/* ==========================================
+   ESCAPAR HTML
+========================================== */
 
 function esc(s){
-  return String(s??"").replace(/[&<>"']/g,c=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  }[c]));
+
+  return String(s ?? "")
+    .replace(
+      /[&<>"']/g,
+      c => ({
+
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#39;"
+
+      }[c])
+    );
+
 }
 
-db.auth.onAuthStateChange((event, session)=>{
-  if(event==="SIGNED_OUT") mostrarLogin();
-});
+
+/* ==========================================
+   MOSTRAR LOGIN
+========================================== */
+
+function mostrarLogin(){
+
+  loginEl.style.display =
+    "flex";
+
+  appEl.style.display =
+    "none";
+
+}
+
+
+/* ==========================================
+   SALIR
+========================================== */
+
+async function salir(){
+
+  await db.auth.signOut();
+
+  datos = [];
+
+  perfil = null;
+
+  mostrarLogin();
+
+}
+
+
+/* ==========================================
+   PROBAR SUPABASE
+========================================== */
+
+async function probarConexion(){
+
+  msg(
+    "🌐 Probando conexión..."
+  );
+
+
+  try{
+
+    const response =
+      await fetch(
+        SUPABASE_URL
+        + "/auth/v1/settings",
+        {
+          method:"GET",
+
+          headers:{
+            apikey:SUPABASE_KEY
+          }
+        }
+      );
+
+
+    if(response.ok){
+
+      msg(
+        "✅ Conexión con Supabase funcionando."
+      );
+
+    }else{
+
+      msg(
+        "⚠️ Supabase respondió HTTP "
+        + response.status
+      );
+
+    }
+
+  }catch(error){
+
+    console.error(error);
+
+    msg(
+      "❌ El navegador no puede conectarse con Supabase."
+    );
+
+  }
+
+}
+
+
+/* ==========================================
+   CAMBIO DE SESION
+========================================== */
+
+db.auth.onAuthStateChange(
+  async (event, session) => {
+
+    if(event === "SIGNED_OUT"){
+
+      mostrarLogin();
+
+    }
+
+  }
+);
+
+
+/* ==========================================
+   INICIAR
+========================================== */
 
 (async function iniciar(){
+
   try{
-    const {data:{session}}=await db.auth.getSession();
-    if(session) await cargarUsuario();
-    else mostrarLogin();
-  }catch(e){
-    console.error("INIT ERROR",e);
+
+    const {
+      data:{
+        session
+      }
+    } =
+      await db.auth.getSession();
+
+
+    if(session){
+
+      await cargarUsuario();
+
+    }else{
+
+      mostrarLogin();
+
+    }
+
+  }catch(error){
+
+    console.error(
+      "INIT ERROR:",
+      error
+    );
+
+
     mostrarLogin();
-    msg("No se pudo conectar con Supabase. Usá 🌐 Probar conexión.");
+
+
+    msg(
+      "❌ No se pudo iniciar la conexión con Supabase."
+    );
+
   }
+
 })();
+
 </script>
-</body></html>
+
+</body>
+
+</html>
